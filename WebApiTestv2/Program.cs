@@ -15,6 +15,7 @@ builder.Services.AddCors(options =>
         builder =>
         {
             builder
+                .WithOrigins("http://localhost:4200")
                .AllowAnyOrigin()
                .AllowAnyMethod()
                .AllowAnyHeader();
@@ -44,7 +45,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-
+app.UseSwagger();
+app.UseSwaggerUI();
 app.UseCors("AllowAll");
 app.UseHttpsRedirection();
 app.UseRouting();
